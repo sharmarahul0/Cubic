@@ -3,7 +3,7 @@ import ARMConsole from "./ARMConsole";
 
 const SOCKET_URL = "wss://cubic.judgeindiasolutions.com/api/ws/console";
 
-const HardwarePage = () => {
+const HardwarePage = (deviceID: string) => {
   const [connected, setConnected] = useState(false);
   const socketRef = useRef<WebSocket | null>(null);
   const reconnectRef = useRef<NodeJS.Timeout | null>(null);
@@ -22,7 +22,7 @@ const HardwarePage = () => {
         JSON.stringify({
           api_key:
             "edda69508d03b9e2be67.660f25692384b5026783a8928ae6c473c881cdd6088a11cd4662364f3973c9a4b47772ee60c8752bcf622452c02b987ecafec9a5610a83d02012440badf0dbee",
-          instance_id: "f10525b0-2aa4-49c3-8ade-8a5020b8c4a9",
+          instance_id: deviceID || "d9b1c8e0-9d9b-4a3c-8f1e-2a5e6f7b8c9d",
         })
       );
     };

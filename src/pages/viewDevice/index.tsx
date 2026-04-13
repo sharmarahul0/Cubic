@@ -220,6 +220,11 @@ function ListDevice() {
   const location = useLocation();
   const navigate = useNavigate();
   const deviceData = location.state?.device;
+  const deviceID = location.state?.device?.id;
+
+
+ 
+
 
   useEffect(() => {
     window.scrollTo({
@@ -283,6 +288,7 @@ function ListDevice() {
         {/* Title - Center */}
         <Typography variant="h5" fontWeight={700} textAlign="center">
           Device: {deviceData?.name} - {deviceData?.model}
+         
         </Typography>
       </Box>
 
@@ -429,7 +435,7 @@ function ListDevice() {
 
         <Grid size={8}>
           <Paper sx={{ p: 2, height: "100%" }}>
-            <HardwarePage />
+            <HardwarePage deviceID={deviceID} />
           </Paper>
         </Grid>
         <Grid size={6} style={{display: "none"}}>
